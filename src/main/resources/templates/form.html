@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Crear tarea</h1>
+    <form th:object="${task}" th:action="${/newTask/new}"></form>
+</body>
+</html>

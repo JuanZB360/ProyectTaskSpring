@@ -5,6 +5,30 @@
     <title>Home</title>
 </head>
 <body>
-    <h1 th:text="${task}"></h1>
+    <h1>Tareas</h1>
+
+    <a th:href="@{/save}">Agregar nueva tarea</a>
+
+    <table>
+        <tr>
+            <th>Título | </th>
+            <th>Descripción | </th>
+            <th>Fecha de creación | </th>
+            <th>Hora de creaciòn | </th>
+            <th>estado | </th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${#Date.format(task.dateCreation, 'dd/MM/yyyy')}"></td>
+            <td th:text="${#Time.format(task.timeCreation, 'HH:mm:ss')}"></td>
+            <td th:text="${task.status}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${task.id})}">Editar</a> |
+                <a th:href="@{/delete/{id}(id=${task.id})}">Borrar</a>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
