@@ -7,26 +7,26 @@
 <body>
     <h1>Tareas</h1>
 
-    <a th:href="@{/save}">Agregar nueva tarea</a>
+    <a th:href="@{/save}">Agregar nueva tarea</a><br><br>
 
     <table>
         <tr>
-            <th>Título | </th>
-            <th>Descripción | </th>
-            <th>Fecha de creación | </th>
-            <th>Hora de creaciòn | </th>
-            <th>estado | </th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha de creación</th>
+            <th>Hora de creaciòn</th>
+            <th>estado</th>
             <th>Acciones</th>
         </tr>
         <tr th:each="task : ${tasks}">
             <td th:text="${task.title}"></td>
             <td th:text="${task.description}"></td>
-            <td th:text="${#Date.format(task.dateCreation, 'dd/MM/yyyy')}"></td>
-            <td th:text="${#Time.format(task.timeCreation, 'HH:mm:ss')}"></td>
+            <td th:text="${task.dateCreation}"></td>
+            <td th:text="${task.timeCreation}"></td>
             <td th:text="${task.status}"></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${task.id})}">Editar</a> |
-                <a th:href="@{/delete/{id}(id=${task.id})}">Borrar</a>
+                <a th:href="@{/edit/{id}(id=${task.id})}">Editar</a>
+                <a th:href="@{/destroy/{id}(id=${task.id})}">Borrar</a>
             </td>
         </tr>
     </table>

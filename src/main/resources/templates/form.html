@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
     <title>Formulario</title>
 </head>
 <body>
-    <h1>Crear tarea</h1>
-    <form th:object="${task}" th:action="${/newTask/new}"></form>
+    <h1>Crear Tarea</h1>
+
+    <form th:object="${task}" th:action="@{/save/create}" method="post">
+        <label for="Task">Tarea:</label>
+        <input type="text" th:field="*{id}" hidden/><br><br>
+        <input type="text" id="task" name="task" th:field="*{title}"/><br><br>
+        <label for="description">Descripcion:</label>
+        <input type="text" id="description" name="description" th:field="*{description}"/><br><br>
+        <label for="status">Estado:</label>
+        <input type="text" id="status" name="status" th:field="*{status}"/><br><br>
+
+        <button type="submit">Crear</button><br><br>
+    </form>
+
+
+    <a href="/Home">Volver</a>
 </body>
 </html>

@@ -6,6 +6,10 @@ import com.Task.service.iTaskInterface.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -31,6 +35,8 @@ public class Taskservice implements ITaskService {
 
     @Override
     public Task save(Task task) {
+        task.setDateCreation(Date.valueOf(LocalDate.now()));
+        task.setTimeCreation(Time.valueOf(LocalTime.now()));
         return taskRepository.save(task);
     }
 }
