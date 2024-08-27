@@ -8,13 +8,16 @@
     <h1>Crear Tarea</h1>
 
     <form th:object="${task}" th:action="@{/save/create}" method="post">
+        <input type="text" th:field="*{Id}" hidden/><br><br>
         <label for="Task">Tarea:</label>
-        <input type="text" th:field="*{id}" hidden/><br><br>
-        <input type="text" id="task" name="task" th:field="*{title}"/><br><br>
+        <input type="text" id="task" name="task" th:field="*{title}" required/><br><br>
         <label for="description">Descripcion:</label>
-        <input type="text" id="description" name="description" th:field="*{description}"/><br><br>
+        <input type="text" id="description" name="description" th:field="*{description}" required/><br><br>
         <label for="status">Estado:</label>
-        <input type="text" id="status" name="status" th:field="*{status}"/><br><br>
+        <select id="status" th:field="*{status}" required>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Terminado">Terminado</option>
+        </select><br><br>
 
         <button type="submit">Crear</button><br><br>
     </form>

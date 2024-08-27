@@ -19,9 +19,7 @@ public class Taskservice implements ITaskService {
     private TaskRepository taskRepository;
 
     @Override
-    public void destroy(String s) {
-        taskRepository.deleteById(s);
-    }
+    public void destroy(String s) {taskRepository.deleteById(s);}
 
     @Override
     public List<Task> readAll() {

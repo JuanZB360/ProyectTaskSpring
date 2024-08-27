@@ -1,10 +1,7 @@
 package com.Task.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,9 +18,14 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String Id;
 
+    @Column(name="title", nullable = false)
     private String title;
+    @Column(name = "description", nullable = false)
     private String description;
+    @Column(name = "dateCreation", nullable = false)
     private Date dateCreation;
+    @Column(name = "timeCreation", nullable = false)
     private Time timeCreation;
+    @Column(name = "status", nullable = false)
     private String status;
 }

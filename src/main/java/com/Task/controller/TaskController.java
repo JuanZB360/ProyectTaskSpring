@@ -38,9 +38,8 @@ public class TaskController {
         return "form";
     }
 
-    @PostMapping("/destroy/{id}")
-    public String updateTask(@PathVariable String id, Model model){
-
+    @GetMapping("/destroy/{id}")
+    public String updateTask(@PathVariable String id){
         taskService.destroy(id);
         return "redirect:/Home";
     }
